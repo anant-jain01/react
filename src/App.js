@@ -1,3 +1,7 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+
+
 const App = () => {
   return React.createElement(
     "div",
@@ -28,5 +32,5 @@ const Pizza = (pops) => {
   ]);
 };
 const container = document.querySelector("#root");
-const root = ReactDOM.createRoot(container);
+const root = createRoot(container);
 root.render(React.createElement(App));
