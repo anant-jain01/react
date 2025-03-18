@@ -24,12 +24,12 @@ const App = () => {
     ),
   );
 };
-const Pizza = (pops) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, pops.name),
-    React.createElement("p", {}, pops.description),
-  ]);
-};
+// const Pizza = (pops) => {
+//   return React.createElement("div", {}, [
+//     React.createElement("h1", {}, pops.name),
+//     React.createElement("p", {}, pops.description),
+//   ]);
+// };
 const container = document.querySelector("#root");
 const root = createRoot(container);
 root.render(React.createElement(App));
