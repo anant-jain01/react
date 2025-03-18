@@ -1,4 +1,3 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 import Pizza from "./Pizza";
 const App = () => {
@@ -18,4 +17,4 @@ const App = () => {
 
 const container = document.querySelector("#root");
 const root = createRoot(container);
-root.render(React.createElement(App));
+root.render(<App/>);
