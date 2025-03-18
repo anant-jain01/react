@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 import Pizza from "./Pizza";
-const App = () => {
+const App = () => {return(
   <div>
     <h1>Padre Gino's Pizza – Order Now</h1>
     <Pizza name="Pepperoni" description="Mozzarella Cheese, Pepperoni" />
@@ -12,7 +12,7 @@ const App = () => {
       name="The Big Meat Pizza"
       description="Bacon, Pepperoni, Italian Sausage, Chorizo Sausage"
     />
-  </div>;
+  </div>)
 };
 
 const container = document.querySelector("#root");
