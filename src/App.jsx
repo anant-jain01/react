@@ -1,28 +1,29 @@
 import { createRoot } from "react-dom/client";
 import Pizza from "./Pizza";
+
 const App = () => {
   return (
     <div>
-      <h1>Padre Gino's Pizza – Order Now</h1>
+      <h1 className="logo">Padre Gino's Pizza</h1>
       <Pizza
-        image={"/public/pizzas/pepperoni.webp"}
         name="Pepperoni"
         description="Mozzarella Cheese, Pepperoni"
+        image={"/public/pizzas/pepperoni.webp"}
       />
       <Pizza
-        image={"/public/pizzas/hawaiian.webp"}
         name="The Hawaiian Pizza"
         description="Sliced Ham, Pineapple, Mozzarella Cheese"
+        image={"/public/pizzas/hawaiian.webp"}
       />
       <Pizza
-        image={"/public/pizzas/big_meat.webp"}
         name="The Big Meat Pizza"
         description="Bacon, Pepperoni, Italian Sausage, Chorizo Sausage"
+        image={"/public/pizzas/big_meat.webp"}
       />
     </div>
   );
 };
 
-const container = document.querySelector("#root");
+const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(<App />);
