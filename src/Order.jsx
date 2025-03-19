@@ -1,11 +1,29 @@
 import Pizza from "./Pizza";
-import {useState} from'react';
+import { useState, useEffect } from "react";
+const intl = new intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 export default function Order() {
   // const pizzaType = "pepperoni";
   // const pizzaSize = "medium";
-  const [pizzaType,setPizzaType]=useState("pepperoni");
-  const [pizzaSize,setPizzaSize]=useState("M");
-  console.log(pizzaType,pizzaSize);
+  const [pizzaTypes, setPizzaTypes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [pizzaType, setPizzaType] = useState("pepperoni");
+  const [pizzaSize, setPizzaSize] = useState("M");
+  let price, selectedPizza;
+  if (!loading) {
+    selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
+  }
+  async function fetchPizzaTypes() {
+    const pizzaRes = await fetch("/api/pizzas");
+    const pizzaJson = await pizzaRes.json();
+    setPizzaTypes(pizzaJson);
+    setLoading(false);
+  }
+  useEffect(()=>{
+    fetchPizzaTypes();
+  })
   return (
     <div className="order">
       <h2>Create Order</h2>
@@ -13,18 +31,17 @@ export default function Order() {
         <div>
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
-            <select 
-            
-            onChange={(e)=> setPizzaType(e.target.value)}
-            
-            name="pizza-type" value={pizzaType}>
+            <select
+              onChange={(e) => setPizzaType(e.target.value)}
+              name="pizza-type"
+              value={pizzaType}
+            >
               <option value="pepperoni">Pepperoni Pizza</option>
               <option value="hawaiian">Hawaiian Pizza</option>
               <option value="big_meat">Big Meat Pizza</option>
             </select>
           </div>
-          <div
-          onChange={(e)=>setPizzaSize(e.target.value)}>
+          <div onChange={(e) => setPizzaSize(e.target.value)}>
             <label htmlFor="pizza-size">Pizza Size</label>
             <div>
               <span>
