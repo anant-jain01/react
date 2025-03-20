@@ -23,7 +23,7 @@ export default function Order() {
   }
   useEffect(()=>{
     fetchPizzaTypes();
-  })
+  },[])
   return (
     <div className="order">
       <h2>Create Order</h2>
